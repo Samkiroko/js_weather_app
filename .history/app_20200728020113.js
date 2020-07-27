@@ -14,32 +14,33 @@ window.addEventListener('load', () => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
 
-      const proxy = 'https://cors-anywhere.herokuapp.com/';
-      const api = `${proxy}https://api.darksky.net/forecast/9e00d522da20f32ddb9cc5f341b5338a/${lat},${long}`;
+      const proxy = 'http://cors-anywhere.herokuapp.com/';
+      const api = `${proxy}https://api.darksky.net/forecast/9ee855d5c250565379e46b0d9cafb7fa/${lat},${long}`;
+
       fetch(api)
         .then((response) => {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           const { temperature, summary, icon } = data.currently;
-          // Set DOM Elements from the API
+          //Set DOM Elements from the API
           temperatureDegree.textContent = temperature;
           temperatureDescription.textContent = summary;
           locationTimezone.textContent = data.timezone;
-          // Formula for Celsius
-          let celsius = (temperature - 32) * (5 / 9);
-          // Set icon
+          // formula for celsius
+          let celcius = (temperature - 32) * (5 / 9);
+
+          //set icon
           setIcons(icon, document.querySelector('.icon'));
 
-          // Change temperature to Celsius/Farenheit
+          //change temperature to celcius/farenheit
           temperatureSection.addEventListener('click', () => {
             if (temperatureSpan.textContent === 'F') {
               temperatureSpan.textContent = 'C';
-              temperatureDegree.textContent = Math.floor(celsius);
+              temperatureDegree.textContent = Math.floor(celcius);
             } else {
               temperatureSpan.textContent = 'F';
-              temperatureDegree.textContent = temperature;
+              temperatureDegree.textContent = Math.floor(temperature);
             }
           });
         });
