@@ -44,14 +44,32 @@ const tempFahrenheit = {
 const drawMainBox = () => {
   body.classList.add('day');
   background.src = skyLine;
-  mainBox.style.background = `url('${skyLine.slice(4, skyLine.length)}') top/cover no-repeat`;
-  mainBox.classList.add('mainBox', 'border', 'border-white', 'mx-auto', 'my-4', 'rounded', 'text-white', 'd-flex', 'flex-column');
+  mainBox.style.background = `url('${skyLine.slice(
+    4,
+    skyLine.length
+  )}') top/cover no-repeat`;
+  mainBox.classList.add(
+    'mainBox',
+    'border',
+    'border-white',
+    'mx-auto',
+    'my-4',
+    'rounded',
+    'text-white',
+    'd-flex',
+    'flex-column'
+  );
   const cityLabel = document.createElement('div');
 
   title.classList.add('title', 'text-center');
   title.innerHTML = 'Weather app';
 
-  textBoxArea.classList.add('d-flex', 'flex-row', 'justify-content-center', 'align-items-center');
+  textBoxArea.classList.add(
+    'd-flex',
+    'flex-row',
+    'justify-content-center',
+    'align-items-center'
+  );
 
   cityInput.classList.add('w-50');
 
@@ -73,7 +91,8 @@ const drawMainBox = () => {
   temperatureBox.classList.add('temperatureBox');
 
   footer.classList.add('text-center', 'text-white', 'footer');
-  footer.innerHTML = '© 2020 <a href=\'https://www.carlossantamaria.co\' target=\'_blank\'>Carlos Santamaría</a>';
+  footer.innerHTML =
+    "© 2020 <a href='https://www.kiroko.tech' target='_blank'>Samuel kiroko N</a>";
 
   textBoxArea.appendChild(cityLabel);
   textBoxArea.appendChild(cityInput);
